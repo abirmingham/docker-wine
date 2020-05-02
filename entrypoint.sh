@@ -12,8 +12,8 @@ FORCED_OWNERSHIP=${FORCED_OWNERSHIP:-no}
 TZ=${TZ:-UTC}
 
 # Create the user account
-! grep -q ":${USER_GID}:$" /etc/group && groupadd --gid "${USER_GID}" "${USER_NAME}"
-useradd --shell /bin/bash --uid "${USER_UID}" --gid "${USER_GID}" --password "${USER_PASSWD}" --no-create-home --home-dir "${USER_HOME}" "${USER_NAME}"
+# ! grep -q ":${USER_GID}:$" /etc/group && groupadd --gid "${USER_GID}" "${USER_NAME}"
+# useradd --shell /bin/bash --uid "${USER_UID}" --gid "${USER_GID}" --password "${USER_PASSWD}" --no-create-home --home-dir "${USER_HOME}" "${USER_NAME}"
 
 # Create the user's home if it doesn't exist
 [ ! -d "${USER_HOME}" ] && mkdir -p "${USER_HOME}"
