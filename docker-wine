@@ -214,6 +214,7 @@ run_container () {
     add_run_arg --hostname="$(hostname)"
     add_run_arg --name="wine"
     add_run_arg --mount="type=bind,source=$(pwd)/gs_assets,target=/home/wineuser/gs_assets"
+    add_run_arg --mount="type=bind,source=$(pwd)/lich,target=/home/wineuser/lich"
     add_run_arg --workdir="${WORKDIR}"
     add_run_arg_timezone
 
@@ -373,6 +374,9 @@ if [ "${USE_RDP_SERVER}" != "no" ]; then
 
 # Run in X11 forwarding mode
 else
+    # Create base lich directory if needed
+    [ -d "$(pwd)/lich" ] || unzip gs_assets/lich-4.6.49.zip
+    sudo chown -R 1010:1010 lich
 
     # Set CMD_ARGS to /bin/bash if no commands specified
     [ -z "${CMD_ARGS[0]}" ] && CMD_ARGS=("/bin/bash")
