@@ -1,0 +1,4 @@
+WINEARCH=win32 winetricks dotnet11      # gets error message on dotnetfx.exe - just ignore
+wine ~/gs_assets/StormFront.exe
+wine ~/gs_assets/lnchInst.exe           # requires killing and restart
+ruby lich/lich.rbw 
