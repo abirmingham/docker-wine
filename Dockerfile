@@ -1,5 +1,4 @@
-ARG TAG=latest
-FROM scottyhardy/docker-remote-desktop:$TAG
+FROM ubuntu:focal
 
 # Install prerequisites
 RUN apt-get update \
